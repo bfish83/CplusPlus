@@ -1,0 +1,39 @@
+EXTERNAL DOCUMENTATION
+CS315001 Spring 2015
+Project 1 Milestone 3
+Name: Barret Lee Fisher
+Date: 2/2/2015
+
+A) PROBLEM SPECIFICATION:
+
+a) formal problem description: Consider a sequence t = (t1,....,tn), we say that the sequence t is d-smooth if there is a sequence w = (w1;.....;wn) of integers such that w is strictly increasing for each value and the absolute value of t(i)-w(i) is less than or equal to d. The task is to develop an algorithm for finding the smallest d such that t is d-smooth. Input consist of n + 1 lines. The first line includes n, the length of the sequence; The next n lines include t(i), one per line. Output consists of one line containing the value for the smallest d for which the input sequence can be smoothen and the number of comparisons made to the original t sequence to find the d value.
+
+b) intuitive problem description: With sequence t full of only ints there always exists a d value that can be used to create a w sequence that is smooth. However, to find the smallest d value it is necessary to focus on the other constraint, that w be sctrictly increasing. We therefore must build from the left a w sequence to allow for the maximum leeway of a potential d value. This is a conservative approach and won't necessarily build a sequence with all w values closest to t, but it will build a sequence that satisfies the parameters and has the most "wiggle room" should it need to be adjusted in the future.
+
+B) SOLUTION
+
+My solution first tests sequence t to see if it is strictly increasing, in which case t is already smooth, w = t, and d = 0. If it is not increasing, it utilizes a binary search so that the runtime is never larger than O(nlogn). The search works by narrowing down the d value in between increasingly narrow margins of the maximum d value (found initially by summing all values of t) and the minimum d value (set initially to 0). Each time it completes an iteration the search area is effectively halved, until only 3 values remain: min, the d value, and max. Because it uses integer division, the maximum value is never considered, and once it has found the correct D it breaks out of the while loop the algorithm is encased in. I used a separate function to actually build a w sequence that returns a bool, true or false, if the d value works or not for the t sequence. My while loop uses this function and the comparison counter increments for each time it is run.
+
+C) TESTING
+
+Purpose:
+- testing for correctness: prepare "difficult inputs" that test
+all potential cases and boundary conditions.
+- testing for measuring the number of comparisons between elements of
+the input sequence. The focus is on the worst case analysis.
+
+Tests in the tests directory include tests that go from very high to very low, and tests negative input values to make the range of the t sequence as large as possible. I tried to find and correct any behavior which seemed not to comply with the problem statement.
+
+For each sequence of the form for k = 2, .., 10
+inputs of the form: 7, 6, 5, 4, 3, 2, 1
+
+(1) n = 7
+(2) minimal d = 6
+(3) M (the right end for the binary search) = 21
+(4) #comparisons = 7
+(5) exact value of n*log_2 M = 30.746
+(6) ratio: (4)/(5) = 0.22767
+
+
+ADDITIONAL NOTES:
+I was stuck using a bubble sort on my first attempt at this problem which I thought worked pretty well until I came to values with large distances between them, (e.g. 1000000 -999999) which took a long time and I found the runtime to be exponential. Binary search works much faster, solving that sequence in only 22 comparisons.

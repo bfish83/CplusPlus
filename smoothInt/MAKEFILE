@@ -1,0 +1,14 @@
+# File: makefile
+# Author: CS315 JWJ-CS-UK and edited by Barret Fisher
+# Task: pa1 - cs315s15 handout
+# Description: makefile for building program "pa1"
+
+pa1: main.o
+	g++ -std=gnu++11 -o pa1 main.o
+
+main.o:	main.cpp
+	g++ -std=gnu++11 -c -Wall main.cpp
+
+clean:
+	rm pa1
+	rm *.o

@@ -1,0 +1,234 @@
+Script started on Mon 02 Feb 2015 09:19:06 PM EST
+[4mviolet[24m:[1m~/cs315/pa1[0m> ./tester.sh
+pa1 cs315001s15: d -smoothness...
+------------------
+output expected: 2
+output computed
+2
+Number of comparisons: 8
+------------------
+output expected: 4
+output computed
+4
+Number of comparisons: 8
+------------------
+output expected: 5
+output computed
+5
+Number of comparisons: 7
+------------------
+output expected: 7
+output computed
+7
+Number of comparisons: 8
+------------------
+output expected: 16
+output computed
+16
+Number of comparisons: 11
+------------------
+output expected: 19
+output computed
+19
+Number of comparisons: 10
+------------------
+output expected: 45
+output computed
+45
+Number of comparisons: 11
+------------------
+output expected: 95
+output computed
+95
+Number of comparisons: 13
+------------------
+output expected: 103
+output computed
+103
+Number of comparisons: 12
+------------------
+output expected: 192
+output computed
+192
+Number of comparisons: 13
+------------------
+output expected: 371
+output computed
+371
+Number of comparisons: 13
+------------------
+output expected: 0
+output computed
+0
+Number of comparisons: 1
+------------------
+output expected: 0
+output computed
+0
+Number of comparisons: 1
+------------------
+output expected: 0
+output computed
+0
+Number of comparisons: 1
+------------------
+output expected: 1000000
+output computed
+1000000
+Number of comparisons: 22
+------------------
+output expected: 1
+output computed
+1
+Number of comparisons: 22
+------------------
+output expected: 8
+output computed
+8
+Number of comparisons: 8
+------------------
+output expected: 7
+output computed
+7
+Number of comparisons: 7
+------------------
+output expected: 500000
+output computed
+500000
+Number of comparisons: 21
+------------------
+output expected: 500000
+output computed
+500000
+Number of comparisons: 21
+------------------
+output expected: 46
+output computed
+46
+Number of comparisons: 9
+------------------
+output expected: 101
+output computed
+101
+Number of comparisons: 9
+----END-----------
+
+[4mviolet[24m:[1m~/cs315/pa1[0m> cat pa1.cpp
+/* Barret Fisher
+ * CS 315
+ * Programming Assignment 1
+ * Spring 2015
+*/
+
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+void pause()
+{
+	cin.ignore(315, '\n');
+	cout << endl << "Press ENTER to continue." << endl;
+	cin.ignore(315, '\n');
+}
+
+bool isIncreasing(vector<int>& tSequence)
+{
+	for (int i = 1; i < tSequence.size(); i++)
+	{
+		if (tSequence[i] <= tSequence[i-1])
+			return false;
+	}
+	return true;
+}
+
+bool buildSequence(vector<int>& tSequence, vector<int>& wSequence, int dValue)
+{
+	bool flag = true;
+	wSequence[0] = tSequence[0] - dValue;
+	for (int i = 1; i < wSequence.size(); i++)
+	{
+		wSequence[i] = tSequence[i] - dValue;
+		while ( wSequence[i-1] >= wSequence[i] )
+		{
+			wSequence[i]++;
+		}
+		if ( (tSequence[i] + dValue) < wSequence[i] )
+			flag = false;
+	}
+	return flag;
+}
+
+int main(int argc, char * argv[])
+{
+	// get size of T sequence
+	int size;
+	cin >> size;
+	
+	// fill T sequence with values AND get total of all values
+	int max = 0;
+	vector<int> tSequence(size);
+	for (int i = 0; i < size; i++)
+	{
+		int value;
+		cin >> value;
+		tSequence[i] = value;
+		max = max + abs(value);
+	}
+
+	// create W sequence
+	vector<int> wSequence(size);
+
+	// setup variables
+	bool searching = true;
+	bool works = true;
+	int counter = 0;
+	int min = 0;
+	int dValue = 0;
+
+	// check to see if sequence already smooth
+	if (isIncreasing(tSequence))
+	{
+		wSequence = tSequence;
+		counter++;
+		searching = false;
+	}
+
+	// find D value
+	while (searching)
+	{
+		dValue = ( (max - min) / 2) + min;
+		works = buildSequence(tSequence, wSequence, dValue);
+		counter++;
+		if (works)
+		{
+			max = dValue;
+		}
+		else if (min == dValue)
+		{
+			dValue++;
+			works = buildSequence(tSequence, wSequence, dValue);
+			counter++;
+			if (works)
+				searching = false;
+		}
+		else
+		{
+			min = dValue;
+		}
+	}
+
+	// output
+	cout << dValue << endl;
+	
+	//for (int i=0; i < wSequence.size();i++)
+	//	cout << wSequence[i] << endl;
+
+	cout << "Number of comparisons: " << counter << endl; // <-- number of iterations
+
+	//pause();
+	return 0;
+}[4mviolet[24m:[1m~/cs315/pa1[0m> ^Dexit
+
+Script done on Mon 02 Feb 2015 09:21:13 PM EST
