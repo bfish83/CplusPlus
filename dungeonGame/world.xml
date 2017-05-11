@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<World>
+
+ <Creature>
+   <name>Small Goblin</name>
+   <symbol>g</symbol>
+   <health>4</health>
+   <hostile>true</hostile>
+ </Creature>
+ <Creature>
+   <name>Big Goblin</name>
+   <symbol>g</symbol>
+   <health>8</health>
+   <hostile>true</hostile>
+ </Creature>
+ <Creature>
+   <name>Goblin Shaman</name>
+   <health>12</health>
+   <symbol>g</symbol>
+   <hostile>true</hostile>
+ </Creature>
+ <Creature>
+   <name>Goblin Warrior</name>
+   <health>20</health>
+   <symbol>g</symbol>
+   <hostile>true</hostile>
+ </Creature>
+
+ <Creature>
+   <name>Small Kobold</name>
+   <symbol>k</symbol>
+   <health>6</health>
+   <hostile>true</hostile>
+ </Creature>
+ <Creature>
+   <name>Big Kobold</name>
+   <health>12</health>
+   <symbol>k</symbol>
+   <hostile>true</hostile>
+ </Creature>
+ <Creature>
+   <name>Kobold Shaman</name>
+   <health>18</health>
+   <symbol>k</symbol>
+   <hostile>true</hostile>
+ </Creature>
+ <Creature>
+   <name>Kobold Warrior</name>
+   <health>24</health>
+   <symbol>k</symbol>
+   <hostile>true</hostile>
+ </Creature>
+
+ <Creature>
+   <name>Orc</name>
+   <symbol>o</symbol>
+   <health>15</health>
+   <hostile>true</hostile>
+ </Creature>
+ <Creature>
+   <name>Orc shaman</name>
+   <health>30</health>
+   <symbol>o</symbol>
+   <hostile>true</hostile>
+ </Creature>
+ <Creature>
+   <name>Orc warrior</name>
+   <symbol>o</symbol>
+   <health>60</health>
+   <hostile>true</hostile>
+ </Creature>
+
+ <Creature>
+   <name>Big Ogre</name>
+   <health>35</health>
+   <symbol>O</symbol>
+   <hostile>true</hostile>
+ </Creature>
+ <Creature>
+   <name>Bigger Ogre</name>
+   <health>70</health>
+   <symbol>O</symbol>
+   <hostile>true</hostile>
+ </Creature>
+ <Creature>
+   <name>Biggest Ogre</name>
+   <health>100</health>
+   <symbol>O</symbol>
+   <hostile>true</hostile>
+ </Creature>
+
+ <Creature>
+   <name>Warg</name>
+   <health>25</health>
+   <symbol>W</symbol>
+   <hostile>true</hostile>
+ </Creature>
+ <Creature>
+   <name>Mean Warg</name>
+   <health>75</health>
+   <symbol>W</symbol>
+   <hostile>true</hostile>
+ </Creature>
+ <Creature>
+   <name>Crazy Warg</name>
+   <health>125</health>
+   <symbol>W</symbol>
+   <hostile>true</hostile>
+ </Creature>
+
+ <Creature>
+   <name>Green Dragon</name>
+   <health>100</health>
+   <symbol>D</symbol>
+   <hostile>true</hostile>
+ </Creature>
+ <Creature>
+   <name>Red Dragon</name>
+   <health>150</health>
+   <symbol>D</symbol>
+   <hostile>true</hostile>
+ </Creature>
+ <Creature>
+   <name>Black Dragon</name>
+   <health>200</health>
+   <symbol>D</symbol>
+   <hostile>true</hostile>
+ </Creature>
+
+
+ <Creature>
+   <name>Grimlich</name>
+   <health>350</health>
+   <symbol>?</symbol>
+   <hostile>true</hostile>
+ </Creature>
+
+
+ <Creature>
+   <name>Wolf</name>
+   <health>10</health>
+   <symbol>w</symbol>
+   <hostile>false</hostile>
+ </Creature>
+
+ <Creature>
+   <name>Dwarf</name>
+   <health>15</health>
+   <symbol>d</symbol>
+   <hostile>false</hostile>
+ </Creature>
+
+ <Creature>
+   <name>Gnome</name>
+   <symbol>G</symbol>
+   <health>25</health>
+   <hostile>false</hostile>
+ </Creature>
+
+ <Creature>
+   <name>Wild Boar</name>
+   <health>50</health>
+   <symbol>B</symbol>
+   <hostile>false</hostile>
+ </Creature>
+
+ <Creature>
+   <name>Bear</name>
+   <health>100</health>
+   <symbol>B</symbol>
+   <hostile>false</hostile>
+ </Creature>
+
+
+ <Armor>
+   <name>Leather</name>
+   <symbol>0</symbol>
+   <weight>15</weight>
+   <value>20</value>
+   <slot>0</slot>
+   <defenseBonus>5</defenseBonus>
+ </Armor>
+ <Armor>
+   <name>Chainmail</name>
+   <symbol>3</symbol>
+   <weight>40</weight>
+   <value>80</value>
+   <slot>0</slot>
+   <defenseBonus>10</defenseBonus>
+ </Armor>
+ <Armor>
+   <name>Platemail</name>
+   <symbol>8</symbol>
+   <weight>50</weight>
+   <value>145</value>
+   <slot>0</slot>
+   <defenseBonus>25</defenseBonus>
+ </Armor>
+ <Armor>
+   <name>Diamond-Coated Platemail</name>
+   <symbol>%</symbol>
+   <weight>60</weight>
+   <value>200</value>
+   <slot>0</slot>
+   <defenseBonus>50</defenseBonus>
+ </Armor>
+
+
+ <Weapon>
+   <name>Dagger</name>
+   <symbol>l</symbol>
+   <weight>1</weight>
+   <value>10</value>
+   <slot>1</slot>
+   <weaponType>3</weaponType>
+   <attackBonus>3</attackBonus>
+ </Weapon>
+ <Weapon>
+   <name>Warhammer</name>
+   <symbol>9</symbol>
+   <weight>10</weight>
+   <value>50</value>
+   <slot>1</slot>
+   <weaponType>2</weaponType>
+   <attackBonus>5</attackBonus>
+ </Weapon>
+ <Weapon>
+   <name>Sword</name>
+   <symbol>1</symbol>
+   <weight>5</weight>
+   <value>80</value>
+   <slot>1</slot>
+   <weaponType>1</weaponType>
+   <attackBonus>10</attackBonus>
+ </Weapon>
+ <Weapon>
+   <name>Greatsword</name>
+   <symbol>4</symbol>
+   <weight>8</weight>
+   <value>130</value>
+   <slot>1</slot>
+   <weaponType>1</weaponType>
+   <attackBonus>20</attackBonus>
+ </Weapon>
+<Weapon>
+   <name>Sword of Destiny</name>
+   <symbol>!</symbol>
+   <weight>7</weight>
+   <value>200</value>
+   <slot>1</slot>
+   <weaponType>1</weaponType>
+   <attackBonus>50</attackBonus>
+ </Weapon>
+
+
+ <Equipment>
+   <name>Silver key</name>
+   <symbol>$</symbol>
+   <weight>1</weight>
+   <value>10000</value>
+   <slot>2</slot>
+ </Equipment>
+
+
+ <Consumable>
+   <name>Small Potion</name>
+   <symbol>p</symbol>
+   <weight>3</weight>
+   <value>25</value>
+   <quantity>3</quantity>
+ </Consumable>
+ <Consumable>
+   <name>Big Potion</name>
+   <symbol>P</symbol>
+   <weight>4</weight>
+   <value>100</value>
+   <quantity>1</quantity>
+ </Consumable>
+
+ <Consumable>
+   <name>Small Food</name>
+   <symbol>f</symbol>
+   <weight>3</weight>
+   <value>20</value>
+   <quantity>3</quantity>
+ </Consumable>
+ <Consumable>
+   <name>Big Food</name>
+   <symbol>F</symbol>
+   <weight>9</weight>
+   <value>80</value>
+   <quantity>1</quantity>
+ </Consumable>
+
+</World>
