@@ -1,0 +1,47 @@
+CS-315 Spring 2015
+JWJ CS-UK and Barret Fisher
+This code uses Kruskal's algorithm to find
+the minimum spanning tree. This code has been extended
+to solve the problem for pa2 cs315s15.
+
+Use "make" in the directory to build the
+executable. Input and Output are
+as specified by graph.h and graph.cpp 
+and output specs.
+
+FILES:
+README	this file
+makefile	Run 'make' to compile all .cpp and .h files 
+			into 'pa2' executable
+test.sh		a simple script to run all tests in the 
+			tests directory (use: chmod +x test.sh ... 
+			and then run: ./test.sh )
+main.cpp
+edge.cpp	a simple class to store edges and compare 
+			their weights
+edge.h
+graph.cpp	a matrix for graph-representation
+graph.h
+unionfind.cpp	a simple UNION-FIND
+unionfind.h
+TESTS		directory containing several tests to be 
+			used by test.sh script
+
+Overall this project contained several key hurdles
+to overcome for the programmer. Modifications were 
+made to the base main.cpp file so that program would
+capture the names of the cities in the input as well
+as the required connections.
+
+The required connections between cities are added to
+the Kruskal algorithm before it starts selecting the 
+paths with the shortest weights, and those edges/weights
+are included in the final tally at output.
+
+A simple check was also included at output to see if
+the number of edges made was less than the number of 
+cities minus 1 (n-1) and if so output was set to
+"IMPOSSIBLE" because the graph would not then be fully
+connected. Of course if their is a cycle formed because
+of 3 or more required connections, this logic would
+be invalidated.

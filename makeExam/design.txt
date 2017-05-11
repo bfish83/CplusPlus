@@ -1,0 +1,151 @@
+Design for Progamming Assignment 3
+Barret Fisher
+3 April, 2013
+
+
+Classes:
+
+
+Exam:  Creates an exam class, consisting of a user-specified range of chapters
+  and number of questions. Utilizes Question classes and essentially creates
+  a vector of questions to be asked by reading the file and outputting based
+  on parameters.
+Data members:
+  int e_numquestions:  The number of questions
+  int e_minchapter:  The minimum chapter included
+  int e_maxchapter:  The maximum chapter included
+  vector<Question*> question_list:  List of available questions for parameters
+  vector<Question*> shuffled_list:  List of shuffled questions
+  vector<string> split_string(string input):  Takes line from file and splits
+    it on the @ character
+  Question* parse_question(string line): Takes split string and separates by 
+    types of questions.
+Methods:
+  Exam(int num_questions, int min_chapter, int max_chapter):  Creat a new exam
+    with the given number of questions, min chapter and max chapter
+  ~Exam():  Destroy created exam
+  int read_questions(string filename):  Create question_list from reading
+    filename, calls shuffle function, creates shuffled_list, returns number of
+    questions after removing excess questions (if any)
+  void shuffle():  Takes shuffled_list and randomizes order
+  void write_exam(string filename) const:  Calls write_exam member functions
+    from question classes for the type of question
+  void write_key(string filename) const:  Calls write_key member functions
+    from question classes for the type of question
+
+
+Question:  Creates default question class, subclasses will inherit from it.
+Data members:
+  void write_point_value(ostream & out) const:  Specifies noun "point" 
+    or "points" to be written, outputs point value for both key and exam
+  int point_value:  Number of points question worth
+  int chapter_number:  Chapter question is from
+  string question_text:  The question itself
+Methods:
+  Question(int points, int chapter, string text):  Default constructor, 
+    other question classes will use it for base of question with first 
+    parameters number of points, number of chapter, question text.
+  virtual void write(ostream &out) const:  Virtual method overwritten by 
+    sub-question classes that will write the exam
+  virtual void write_key(ostream &out) const:  Virtual method overwritten 
+    by sub-question classes that will write the exam key
+
+
+ShortAnswerQ:  Creates a short answer question, inherits from question class
+Data members:
+  vector<string> q_answers:  All correct answers for question
+Methods:
+  ShortAnswerQ(int points, int chapter, string text, vector<string> answers):
+    Default constructor for a short answer question. First three use 
+    Question class, vector<string> answers contains all correct answers 
+    for question
+  virtual void write(ostream &out) const:  Writes question to exam, 
+    overrides Question method by adding place to write answer
+  virtual void write_key(ostream &out) const:  Writes question key to key,
+    overrides Question method by adding possible correct answers
+
+
+LongAnswerQ:  Creates a long answer question, inherits from question class
+Data members:
+  string q_answer:  The correct answer to long answer question
+Methods:
+  LongAnswerQ(int points, int chapter, string text, string answer):  
+    Default constructor for a long answer question. First three use 
+    Question class, string answer is the correct answer to question.
+  virtual void write(ostream &out) const:  Writes question to exam,
+    overrides Question method by adding lines to write answer
+  virtual void write_key(ostream &out) const:  Writes question key to key,
+    overrides Question method by adding complete text of correct answer
+
+
+CodeQ:  Creates a code question, inherits from question class
+Data members:
+  vector<string> q_answers:  The correct answer to code question
+Methods:
+  CodeQ(int points, int chapter, string text, vector<string> answers):
+    Default constructor for a code question. First three use 
+    Question class, vector<string> answers is each line 
+    of the correct code answer.
+  virtual void write(ostream &out) const:  Writes question to exam,
+    overrides Question method by adding lines to write answer
+  virtual void write_key(ostream &out) const:  Writes question key to key,
+    overrides Question method by adding each line of correct code answer
+
+
+MultipleChoiceQ:  Creates a multiple choice question, inherits 
+  from question class
+Data members:
+  int q_numchoices:  Number of question choices
+  char q_correct:  Character of correct question choice
+  vector<string> q_choices:  Text of question choices
+Methods:
+  MultipleChoiceQ(int points, int chapter, string text, int numchoices, 
+    char correct, vector<string> choices):  Default constructor for
+    Multiple Choice question. First three use Question class, 
+    int numchoices is number of question choices, char correct is character 
+    of correct question choice, and vector<string> choices are the choices.
+  virtual void write(ostream &out) const:  Writes question to exam, overrides 
+    Question method by adding multiple choices and place to answer
+  virtual void write_key(ostream &out) const:  Writes question key to key,
+    overrides Question method by outputting character of correct answer and
+    correct answer
+
+
+
+
+Nonmember functions:
+
+void pause_215(bool have_newline): Pause function
+  Parameters true or false based on last value entered at keyboard.
+  Pauses program until ENTER in pressed on keyboard.
+
+string check_filename(): Check filename function
+  No parameters.
+  Gets a filename from user and checks for errors. If good, it passes 
+    it back to main driver program. If bad, it reprompts for more input.
+    Will return an empty string on aborted attempt, which main will handle.
+
+int main():  Main driver program
+  No parameters.
+  Runs check_filename function, then either quits or calls exam class based
+    on user input. Checks user input against selected file. When all input 
+    good it creates exam and writes exam and key to file.
+
+
+Pseudocode for main:
+  1. Output welcome message
+  2. Call check_filename function
+  3. If filename returned, it's good. Proceed to step 4. If empty filename
+     returned, skip to end and end program.
+  4. Create ints for number of questions, min chapter and max chapter
+  5. Get input from user for all three and error check to make sure that
+     a number (an int) is input, the number is positive, there are enough 
+     questions in the file. Create test exam to check num questions.
+     Use do-while loops until input is right.
+  6. When input is right, create a new Exam object based on user input.
+     (This is where most of the work is done in two steps. 
+     Exam is created. Exam is filled with questions from file.)
+  7. Create strings for exam_name and exam_key_name
+  8. Ask user where to save files (no input makes names default value)
+  9. Call write functions for exam which writes exam and key to file.
+ 10. Prompt the user to press Enter, using the pause215 function.

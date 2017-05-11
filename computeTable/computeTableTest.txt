@@ -1,0 +1,154 @@
+Testing for programming assignment 1
+
+
+
+// Testing input 0:
+
+Please enter a positive integer between 0 and 32: 0
+
+  n         2^n          n!    Stirling         Fib
+--- ----------- ----------- ----------- -----------
+  0           1           1           0           1
+
+Press ENTER to continue.
+
+// Outputs as expected for all values
+
+
+
+// Testing input 32:
+
+Please enter a positive integer between 0 and 32: 32
+
+  n         2^n          n!    Stirling         Fib
+--- ----------- ----------- ----------- -----------
+  0           1           1           0           1
+  1           2           1       0.922           1
+  2           4           2        1.92           2
+  3           8           6        5.84           3
+  4          16          24        23.5           5
+  5          32         120         118           8
+  6          64         720         710          13
+  7         128   5.04e+003   4.98e+003          21
+  8         256   4.03e+004   3.99e+004          34
+  9         512   3.63e+005    3.6e+005          55
+ 10        1024   3.63e+006    3.6e+006          89
+ 11        2048   3.99e+007   3.96e+007         144
+ 12        4096   4.79e+008   4.76e+008         233
+ 13        8192   6.23e+009   6.19e+009         377
+ 14       16384   8.72e+010   8.67e+010         610
+ 15       32768   1.31e+012    1.3e+012         987
+ 16       65536   2.09e+013   2.08e+013        1597
+ 17      131072   3.56e+014   3.54e+014        2584
+ 18      262144    6.4e+015   6.37e+015        4181
+ 19      524288   1.22e+017   1.21e+017        6765
+ 20     1048576   2.43e+018   2.42e+018       10946
+ 21     2097152   5.11e+019   5.09e+019       17711
+ 22     4194304   1.12e+021   1.12e+021       28657
+ 23     8388608   2.59e+022   2.58e+022       46368
+ 24    16777216    6.2e+023   6.18e+023       75025
+ 25    33554432   1.55e+025   1.55e+025      121393
+ 26    67108864   4.03e+026   4.02e+026      196418
+ 27   134217728   1.09e+028   1.09e+028      317811
+ 28   268435456   3.05e+029   3.04e+029      514229
+ 29   536870912   8.84e+030   8.82e+030      832040
+ 30  1073741824   2.65e+032   2.65e+032     1346269
+ 31 -2147483648   8.22e+033    8.2e+033     2178309
+ 32           0   2.63e+035   2.62e+035  -858993460
+
+Press ENTER to continue.
+
+// Outputs for 2^n messes up for rows 31 and 32 (number too large 
+// for an int), and Fibonnacci messes up for row 32 for same reason.
+
+
+
+// Testing input 12:
+
+Please enter a positive integer between 0 and 32: 12
+
+  n         2^n          n!    Stirling         Fib
+--- ----------- ----------- ----------- -----------
+  0           1           1           0           1
+  1           2           1       0.922           1
+  2           4           2        1.92           2
+  3           8           6        5.84           3
+  4          16          24        23.5           5
+  5          32         120         118           8
+  6          64         720         710          13
+  7         128   5.04e+003   4.98e+003          21
+  8         256   4.03e+004   3.99e+004          34
+  9         512   3.63e+005    3.6e+005          55
+ 10        1024   3.63e+006    3.6e+006          89
+ 11        2048   3.99e+007   3.96e+007         144
+ 12        4096   4.79e+008   4.76e+008         233
+
+Press ENTER to continue.
+
+// Outputs as expected
+
+
+
+// Testing input -1:
+
+Please enter a positive integer between 0 and 32: -1
+You entered -1, that number is not between 0 and 32. Exiting...
+
+Press ENTER to continue.
+
+// Outputs as expected
+
+
+
+// Testing input 33:
+
+Please enter a positive integer between 0 and 32: 33
+You entered 33, that number is not between 0 and 32. Exiting...
+
+Press ENTER to continue.
+
+// Outputs as expected
+
+
+
+// Testing input 2 2:
+
+Please enter a positive integer between 0 and 32: 2 2
+
+  n         2^n          n!    Stirling         Fib
+--- ----------- ----------- ----------- -----------
+  0           1           1           0           1
+  1           2           1       0.922           1
+  2           4           2        1.92           2
+
+Press ENTER to continue.
+
+// Outputs as if "2" were entered, not "2 2"
+
+
+
+// Testing input 8.9:
+
+Please enter a positive integer between 0 and 32: 8.9
+
+  n         2^n          n!    Stirling         Fib
+--- ----------- ----------- ----------- -----------
+  0           1           1           0           1
+  1           2           1       0.922           1
+  2           4           2        1.92           2
+  3           8           6        5.84           3
+  4          16          24        23.5           5
+  5          32         120         118           8
+  6          64         720         710          13
+  7         128   5.04e+003   4.98e+003          21
+  8         256   4.03e+004   3.99e+004          34
+
+Press ENTER to continue.
+
+// Outputs as if 8 were entered, not 8.9.
+
+
+
+// Testing input AC:
+// *NOTE program runs and exits without pausing at pause function, 
+// so cannot copy results into this text.
